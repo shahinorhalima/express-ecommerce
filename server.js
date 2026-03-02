@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDb from "./config/db.js";
+import brandRoute from "./routes/brandRoute.js";
 
 // doten config
 dotenv.config();
@@ -19,6 +20,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 // routes
+app.get("/", (req, res) => {
+  res.send("welcome to my api");
+});
+
+app.use("/api/brand", brandRoute);
 
 // server liten
 app.listen(PORT, () => {
