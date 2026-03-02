@@ -1,9 +1,9 @@
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import connectDb from "./config/db.js";
 import brandRoute from "./routes/brandRoute.js";
+import userRoute from "./routes/userRoute.js";
 
 // doten config
 dotenv.config();
@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/brand", brandRoute);
+app.use("/api/user", userRoute);
 
 // server liten
 app.listen(PORT, () => {
